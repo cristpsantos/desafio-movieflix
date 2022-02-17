@@ -10,3 +10,13 @@
 html {
     background: #525252;
 }
+
+.buttom-custom {
+    height: 60px;
+    font-size: 20px;
+    font-weight: 700;
+    background: #FFC700;
+    border-radius: 4px;
+    border: none;
+    margin-top: 40px;
+}
