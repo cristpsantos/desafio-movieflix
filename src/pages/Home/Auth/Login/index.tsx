@@ -2,8 +2,13 @@ import './styles.css';
 
 const Login = () => {
     return(
-        <div>
-            <h1>Página de Login</h1>
+        <div className="login-container">
+            <h1>LOGIN</h1>
+            <form className="form-container">
+                <input type="text" placeholder="Email" />
+                <input type="password" placeholder="Senha" />
+                <button className="buttom-custom">FAZER LOGIN</button>
+            </form>
         </div>
     );
 }

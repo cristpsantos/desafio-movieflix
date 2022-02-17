@@ -1,9 +1,10 @@
+import Login from './Login';
 import './styles.css';
 
 const Auth = () => {
     return(
-        <div>
-            <h1>Página autenticação!</h1>
+        <div className="auth-container">
+            <Login />
         </div>
     );
 }
