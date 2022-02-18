@@ -5,7 +5,7 @@ type Props = {
   path: string;
 };
 
-const isAuthenticated = true;
+const isAuthenticated = false;
 
 const PrivateRoute = ({ children, path }: Props) => {
 

@@ -3,6 +3,7 @@ import { requestBackendLogin } from "util/request";
 import { useState } from "react";
 
 import "./styles.css";
+import { getAuthData, saveAuthData } from "util/storage";
 
 type FormData = {
   username: string;
@@ -17,7 +18,10 @@ const Login = () => {
     requestBackendLogin(formData)
       .then((response) => {
         setHasError(false);
+        saveAuthData(response.data);
+        const token = getAuthData();
         console.log("Sucesso", response.data);
+        console.log("Token Gerado", token.access_token);
 
       })
       .catch((error) => {
