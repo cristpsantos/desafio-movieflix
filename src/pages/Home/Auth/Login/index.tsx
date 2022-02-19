@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import "./styles.css";
 import { getAuthData, saveAuthData } from "util/storage";
+import { useHistory } from "react-router-dom";
 
 type FormData = {
   username: string;
@@ -11,6 +12,9 @@ type FormData = {
 };
 
 const Login = () => {
+
+  const history = useHistory();
+
   const [hasError, setHasError] = useState(false);
   const { register, handleSubmit, formState: {errors} } = useForm<FormData>();
 
@@ -22,6 +26,7 @@ const Login = () => {
         const token = getAuthData();
         console.log("Sucesso", response.data);
         console.log("Token Gerado", token.access_token);
+        history.push("/movies");
 
       })
       .catch((error) => {
