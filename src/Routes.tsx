@@ -6,6 +6,7 @@ import Movies from "pages/Movies";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 const Routes = () => {
+
     return(
         <BrowserRouter>
             <Navbar />
