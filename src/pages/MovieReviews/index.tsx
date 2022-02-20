@@ -2,7 +2,6 @@ import { AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MovieReviewsPage } from "types/movieReviewsPage";
-import { SpringPage } from "types/vendor/spring";
 import { requestBackend } from "util/request";
 import "./styles.css";
 

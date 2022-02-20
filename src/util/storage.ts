@@ -13,3 +13,7 @@ export const saveAuthData = (obj: LoginResponse) => {
 export const getAuthData = () => {
     return JSON.parse(localStorage.getItem(keyToken) ?? "{}") as LoginResponse;
 }
+
+export const removeAuthData = () => {
+    localStorage.removeItem(keyToken);
+}

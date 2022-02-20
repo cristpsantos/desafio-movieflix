@@ -1,8 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { isAuthenticated } from "util/auth";
+import { removeAuthData } from "util/storage";
 import "./styles.css";
 
 const Navbar = () => {
+
+  const history = useHistory();
+
+  const handleLogoutClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    removeAuthData();
+    history.replace("/")
+  }
+
   return (
     <nav className="navbar navbar-custom">
       <div className="navbar-container">
@@ -10,9 +20,9 @@ const Navbar = () => {
               MovieFlix
             </Link>
         {isAuthenticated() ? (
-            <a href="#2" className="btn-custom">
+            <Link onClick={handleLogoutClick} to="#logout" className="btn-custom">
               SAIR
-            </a>) : ""}
+            </Link>) : ""}
       </div>
     </nav>
   );
