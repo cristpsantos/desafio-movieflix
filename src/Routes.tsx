@@ -21,6 +21,10 @@ const Routes = () => {
                 <Route path="/auth/login" exact>
                     <Home />
                 </Route>
+                <Redirect from="*" to="/auth/login" exact/>
+                <Route path="*">
+                    <h1>Página não encontrada</h1>
+                </Route>
             </Switch>
         </BrowserRouter>
     );
