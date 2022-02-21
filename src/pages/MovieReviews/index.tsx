@@ -2,6 +2,7 @@ import { AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MovieReviewsPage } from "types/movieReviewsPage";
+import { hasAnyRoles } from "util/auth";
 import { requestBackend } from "util/request";
 import "./styles.css";
 
@@ -29,7 +30,7 @@ const MoviesReviews = () => {
   return (
     <div className="reviews-container">
       <h1>Tela detalhes do filme id: {movieId}</h1>
-      <div className="card-newreviews">
+      {hasAnyRoles(['ROLE_MEMBER']) ? (<div className="card-newreviews">
         <form className="form-reviews">
           <input type="text" placeholder="Deixe aqui sua avaliação" />
           <div className="buttom-div-custom">
@@ -38,7 +39,8 @@ const MoviesReviews = () => {
             </button>
           </div>
         </form>
-      </div>
+      </div>) : ""}      
+
       <div className="card-reviews">
         {page?.map((review) => [
           <div className="details-reviews" key={ review.id }>
