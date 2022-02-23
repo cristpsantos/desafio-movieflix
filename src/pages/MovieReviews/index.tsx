@@ -26,6 +26,7 @@ const MoviesReviews = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<FormData>();
 
@@ -45,14 +46,10 @@ const MoviesReviews = () => {
     requestBackend(params).then((response) => {
       if (reload === true) {
         setReload(false);
-        register("text", {
-          value: ""
-        })
+        setValue("text","");
       } else {
         setReload(true);
-        register("text", {
-          value: ""
-        })
+        setValue("text","");
       }
     });
   };

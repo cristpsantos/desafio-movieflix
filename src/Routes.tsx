@@ -4,6 +4,7 @@ import Home from "pages/Home";
 import MoviesReviews from "pages/MovieReviews";
 import Movies from "pages/Movies";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { isAuthenticated } from "util/auth";
 
 const Routes = () => {
 
@@ -17,7 +18,7 @@ const Routes = () => {
                 <PrivateRoute path="/movies">
                     <Movies />
                 </PrivateRoute>
-                <Redirect from="/" to="/auth/login" exact/>
+                <Redirect from="/" to={isAuthenticated() ? "/movies" : "/auth/login"} exact/>
                 <Route path="/auth/login" exact>
                     <Home />
                 </Route>
