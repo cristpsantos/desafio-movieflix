@@ -58,7 +58,7 @@ const Login = () => {
           name="username"
           className={`form-control base-input ${errors.username ? 'is-invalid' : ''}`}
         />
-        <div className="invalid-feedback d-block feedback-custom">{errors.username?.message}</div>
+        <div className="feedback d-block">{errors.username?.message}</div>
         <input
           type="password"
           {...register("password", {
@@ -68,7 +68,7 @@ const Login = () => {
           name="password"
           className={`form-control base-input ${errors.password ? 'is-invalid' : ''}`}
         />
-        <div className="invalid-feedback d-block feedback-custom">{errors.password?.message}</div>
+        <div className="feedback d-block">{errors.password?.message}</div>
         <button className="buttom-custom">FAZER LOGIN</button>
       </form>
     </div>
