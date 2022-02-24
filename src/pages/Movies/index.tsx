@@ -28,11 +28,12 @@ const Movies = () => {
     <div className="movie-container">
       <h1>Tela de listagem de filmes</h1>
       <ul>
-        {page?.content.map((movie) => (
-          <li key={movie.id}>
-            <Link to={"/movies/" + movie.id}>Acessar/{movie.title}/{movie.id}</Link>
+          <li key={page?.content[1].id}>
+            <Link to={"/movies/" + page?.content[1].id}>Acessar/{page?.content[1].title}/{page?.content[1].id}</Link>
           </li>
-        ))}
+          <li key={page?.content[5].id}>
+            <Link to={"/movies/" + page?.content[5].id}>Acessar/{page?.content[5].title}/{page?.content[5].id}</Link>
+          </li>
       </ul>
     </div>
   );
