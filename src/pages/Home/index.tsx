@@ -14,7 +14,6 @@ const Home = () => {
             <div className="home-login-container">
                 <Auth />
             </div>
-
         </div>
     );
 }

@@ -39,7 +39,7 @@ const Login = () => {
         setAuthContextData({
           authenticated: true
         })
-        history.push(from);
+        history.replace(from);
       })
       .catch((error) => {
         setHasError(true);

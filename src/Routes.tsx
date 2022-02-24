@@ -3,8 +3,7 @@ import PrivateRoute from "components/PrivateRoute";
 import Home from "pages/Home";
 import MoviesReviews from "pages/MovieReviews";
 import Movies from "pages/Movies";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { isAuthenticated } from "util/auth";
+import { BrowserRouter, Switch } from "react-router-dom";
 
 const Routes = () => {
 
@@ -18,14 +17,9 @@ const Routes = () => {
                 <PrivateRoute path="/movies">
                     <Movies />
                 </PrivateRoute>
-                <Redirect from="/" to={isAuthenticated() ? "/movies" : "/auth/login"} exact/>
-                <Route path="/auth/login" exact>
+                <PrivateRoute path="/auth/login" roles={['ROLE_MEMBER', 'ROLE_VISITOR']}>
                     <Home />
-                </Route>
-                <Redirect from="*" to="/auth/login" exact/>
-                <Route path="*">
-                    <h1>Página não encontrada</h1>
-                </Route>
+                </PrivateRoute>
             </Switch>
         </BrowserRouter>
     );
