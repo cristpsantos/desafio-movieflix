@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { MovieReviewsPage } from "types/movieReviewsPage";
 import { hasAnyRoles } from "util/auth";
 import { requestBackend } from "util/request";
+import { ReactComponent as AuthImage } from "assets/images/Star.svg";
 import "./styles.css";
 
 type UrlParams = {
@@ -46,10 +47,10 @@ const MoviesReviews = () => {
     requestBackend(params).then((response) => {
       if (reload === true) {
         setReload(false);
-        setValue("text","");
+        setValue("text", "");
       } else {
         setReload(true);
-        setValue("text","");
+        setValue("text", "");
       }
     });
   };
@@ -78,7 +79,9 @@ const MoviesReviews = () => {
               name="text"
               type="text"
               placeholder="Deixe aqui sua avaliação"
-              className={`form-control base-input ${errors.text ? 'is-invalid' : ''}`}
+              className={`form-control base-input ${
+                errors.text ? "is-invalid" : ""
+              }`}
             />
             <div className="feedback d-block">{errors.text?.message}</div>
             <div className="buttom-div-custom">
@@ -95,7 +98,10 @@ const MoviesReviews = () => {
       <div className="card-reviews">
         {page?.map((review) => [
           <div className="details-reviews" key={review.id}>
-            <h4 className="name-user"> {review.user.name}</h4>
+            <div className="name-user-container">
+              <AuthImage />
+              <h4 className="name-user"> {review.user.name}</h4>
+            </div>
             <p className="review-users">{review.text}</p>
           </div>,
         ])}

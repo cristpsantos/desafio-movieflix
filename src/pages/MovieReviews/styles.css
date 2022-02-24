@@ -4,6 +4,12 @@
     color: rgb(102, 14, 14);
     margin-top: 5px;
 }
+
+.name-user-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
 .reviews-container {
     background: #525252;
     padding: 17px 10px 0 10px;
@@ -63,6 +69,8 @@
     font-weight: 700;
     color: #fff;
     letter-spacing: -0.015em;
+    margin-left: 10px;
+    margin-bottom: 0;
 }
 
 .review-users {

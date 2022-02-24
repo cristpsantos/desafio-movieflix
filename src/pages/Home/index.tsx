@@ -1,4 +1,4 @@
-import { ReactComponent as AuthImage }  from "assets/images/desenho.svg";
+import { ReactComponent as AuthImage }  from "assets/images/Desenho.svg";
 import Auth from "./Auth";
 
 import './styles.css';
